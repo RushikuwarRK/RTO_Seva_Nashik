@@ -1,52 +1,32 @@
-# 🚗 RTO Seva Nashik
+# RTO Seva Nashik — Flask + MySQL Production Starter
 
-**RTO Seva Nashik** is a full-stack web application designed to simplify Regional Transport Office (RTO) services in Nashik, Maharashtra.
+## Features
+- Flask application factory
+- MySQL via SQLAlchemy/PyMySQL
+- CSRF protection
+- Admin authentication with hashed passwords
+- Persistent appointment bookings with unique tracking IDs
+- Public tracking API
+- Persistent enquiries
+- Admin dashboard for booking/enquiry status updates
+- Downloadable document PDFs
+- Responsive reference-based frontend
+- Gunicorn deployment entry point
 
-The platform helps customers access RTO-related services, book appointments, check estimated fees, download document checklists, and track application status online.
+## Windows setup
+1. Install MySQL Server and create the DB/user by running `schema.sql` in MySQL Workbench.
+2. Create venv: `python -m venv venv`
+3. Activate: `venv\Scripts\activate`
+4. Install: `pip install -r requirements.txt`
+5. Copy `.env.example` to `.env` and change SECRET_KEY, DB password, admin email/password.
+6. Create tables: `flask --app app init-db`
+7. Create admin: `flask --app app create-admin`
+8. Run: `flask --app app run --debug`
+9. Website: http://127.0.0.1:5000/
+10. Admin: http://127.0.0.1:5000/admin/login
 
-## ✨ Key Features
+## Production
+Set environment variables on your host. Do not commit `.env`. Use a managed MySQL database and run `gunicorn app:app`. Enable HTTPS at the hosting/proxy layer.
 
-- Responsive and modern user interface
-- RTO service management
-- Online appointment booking
-- Driving Licence (LL/DL) assistance
-- Vehicle Registration and RC Transfer
-- RTO fee calculator
-- Application tracking system
-- Customer enquiry management
-- WhatsApp integration
-- Admin login and dashboard
-- MySQL database integration
-- PDF document checklist downloads
-
-## 🛠️ Technologies Used
-
-**Frontend:** HTML5, CSS3, JavaScript
-
-**Backend:** Python, Flask
-
-**Database:** MySQL
-
-**ORM:** Flask-SQLAlchemy
-
-**Security:** Password Hashing, CSRF Protection, Session Authentication
-
-## 🎯 Project Objective
-
-To provide a convenient online platform for managing RTO service enquiries and appointments while reducing paperwork and improving the customer experience.
-
-## 🚀 Future Improvements
-
-- Customer registration and login
-- OTP verification
-- Online payment integration
-- Document upload system
-- WhatsApp and SMS notifications
-- Advanced admin analytics
-- Live application status updates
-
-## 👨‍💻 Project Status
-
-Development in progress.
-
-**Built with Python Flask and MySQL.**
+## Important
+The fee values are illustrative and must be checked against current official government/RTO fees before public launch. Add your privacy policy/terms and verify all business contact/address details.
